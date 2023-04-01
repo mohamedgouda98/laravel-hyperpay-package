@@ -1,5 +1,6 @@
 {
     "name": "gouda/laravel-hyperpay",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Gouda\\LaravelHyperpay\\": "src/"
