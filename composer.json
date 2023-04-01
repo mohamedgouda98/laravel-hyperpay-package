@@ -1,0 +1,18 @@
+{
+    "name": "gouda/laravel-hyperpay",
+    "autoload": {
+        "psr-4": {
+            "Gouda\\LaravelHyperpay\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "macbookpro",
+            "email": "dev.mohamedgouda@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^7.9"
+    },
+    "require": {}
+}
