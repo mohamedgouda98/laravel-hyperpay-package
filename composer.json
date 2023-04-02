@@ -15,5 +15,7 @@
     "require-dev": {
         "orchestra/testbench": "^7.9"
     },
-    "require": {}
+    "require": {
+        "ext-curl": "*"
+    }
 }

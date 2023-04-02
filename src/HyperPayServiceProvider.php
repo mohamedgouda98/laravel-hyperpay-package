@@ -15,13 +15,13 @@ class HyperPayServiceProvider extends ServiceProvider
 
 
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('HyperPay.php'),
+            __DIR__ . '/../config/hyperPay.php' => config_path('HyperPay.php'),
         ], 'HyperPay-package-config');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'HyperPay');
+        $this->mergeConfigFrom(__DIR__.'/../config/hyperPay.php', 'hyperPay');
     }
 
 }
