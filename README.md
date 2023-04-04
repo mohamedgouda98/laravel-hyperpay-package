@@ -24,6 +24,11 @@ Add service Providor in config/app.php
 \Gouda\LaravelHyperpay\HyperPayServiceProvider::class,
 ```
 
+run migration
+```bash
+php artisan migrate
+```
+
 
 
     
