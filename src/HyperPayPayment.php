@@ -53,11 +53,10 @@ class HyperPayPayment
                     return curl_error($ch);
                 }
                 curl_close($ch);
-                $this->saveTransaction(json_decode($responseData), $amount);
-                return json_decode($responseData)->id;
+                return $this->saveTransaction(json_decode($responseData), $amount);
             }catch (\Exception $e)
             {
-                dd($e->getMessage());
+                return $e->getMessage();
             }
 
     }
@@ -76,7 +75,7 @@ class HyperPayPayment
                 'status' => $status,
                 'payment_id' => $paymentId
             ]);
-            return true;
+            return $paymentId;
         }
         return false;
     }
