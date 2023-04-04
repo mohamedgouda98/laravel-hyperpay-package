@@ -39,27 +39,21 @@ class HyperPayPayment
             "&card.cvv=$securitycode".
             "&shopperResultUrl=https://wordpresshyperpay.docs.oppwa.com/tutorials/server-to-server";;
 
-            try {
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $this->hyperpay_url);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                    'Authorization:Bearer ' . $this->hyperpay_token));
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);// this should be set to true in production
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                $responseData = curl_exec($ch);
-                if (curl_errno($ch)) {
-                    return curl_error($ch);
-                }
-                curl_close($ch);
-                $this->saveTransaction(json_decode($responseData), $amount);
-                return json_decode($responseData);
-            }catch (\Exception $e)
-            {
-                dd($e->getMessage());
-            }
-
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->hyperpay_url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Authorization:Bearer ' . $this->hyperpay_token));
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);// this should be set to true in production
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $responseData = curl_exec($ch);
+        if (curl_errno($ch)) {
+            return curl_error($ch);
+        }
+        curl_close($ch);
+        $this->saveTransaction(json_decode($responseData), $amount);
+        return $responseData->id;
     }
 
 
